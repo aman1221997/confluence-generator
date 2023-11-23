@@ -1,0 +1,37 @@
+"server1":
+  status: commissioned
+  ip_address: 10.61.71.62
+  ip_prefixes:
+    - "172.198.72.91/24"
+    - "172.198.72.92/24"
+    - "172.198.72.98/24"
+  environment: production
+  location: del1
+  type: dp
+  geolocation:
+    - {latitude: 37.7749, longitude: -122.4194}
+  ssh: ssh server1
+  web: webserver-1.abc.io
+
+"server2":
+  status: decommissioned
+  location: ccu1
+  type: dp
+  ssh: false
+
+"server3":
+  status: commissioned
+  ip_address: 10.61.31.55
+  ip_prefixes:
+    - "172.198.47.91/24"
+    - "172.198.47.66/24"
+    - "172.198.47.67/24"
+  environment: production
+  location: bom1
+  type: mp
+  geolocation:
+    - {latitude: 32.7749, longitude: 79.4194}
+  ssh: ssh server3
+  web: webserver-3.abc.io
+
+
