@@ -12,9 +12,13 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-
+      
     - name: Set up Docker
-      uses: docker/setup-docker@v2
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y docker.io
+        sudo systemctl start docker
+        sudo systemctl enable docker
 
     - name: Build Docker image
       run: docker build -t http://ec2-3-110-193-103.ap-south-1.compute.amazonaws.com:8081/artifactory/generic/ubuntu:latest .
