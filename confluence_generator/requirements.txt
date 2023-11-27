@@ -1,2 +1,4 @@
 atlassian-python-api
 pyyaml
+requests
+argparse
