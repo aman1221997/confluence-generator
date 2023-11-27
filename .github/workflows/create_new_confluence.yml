@@ -28,4 +28,4 @@ jobs:
         pip install -r confluence_generator/requirements.txt
 
     - name: Run Python script with secrets
-      run: python confluence_generator/create_new_confluence.py $USERNAME $PASSWORD
+      run: python confluence_generator/create_new_confluence.py --username $USERNAME --password $PASSWORD 
