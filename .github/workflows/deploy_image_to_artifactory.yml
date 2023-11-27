@@ -1,0 +1,26 @@
+name: Deploy Docker Image to Artifactory
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Docker
+      uses: docker/setup-docker@v2
+
+    - name: Build Docker image
+      run: docker build -t http://ec2-3-110-193-103.ap-south-1.compute.amazonaws.com:8081/artifactory/generic/ubuntu:latest .
+
+    - name: Login to Artifactory
+      run: docker login -u ${{ secrets.ARTIFACTORY_USERNAME }} -p ${{ secrets.ARTIFACTORY_PASSWORD }} http://ec2-3-110-193-103.ap-south-1.compute.amazonaws.com:8081/artifactory
+
+    - name: Push Docker image to Artifactory
+      run: docker push http://ec2-3-110-193-103.ap-south-1.compute.amazonaws.com:8081/artifactory/generic/ubuntu:latest
