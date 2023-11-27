@@ -25,6 +25,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
+        pip install -r confluence_generator/requirements.txt
 
     - name: Run Python script with secrets
       run: python confluence_generator/create_new_confluence.py $USERNAME $PASSWORD
